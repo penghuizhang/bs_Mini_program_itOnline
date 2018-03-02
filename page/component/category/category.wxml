@@ -1,0 +1,65 @@
+<<<<<<< HEAD
+<import src="../template/course-category-template/course-category-template.wxml" />
+<view class="main">
+  <view class="categroy-left">
+    <view wx:for="{{category}}" wx:key="id" data-id="{{curIndex}}" data-index="{{category[index].id}}" bindtap="switchTab" class="cate-list {{curIndex === id?'on':''}}">{{item.name}}</view>
+  </view>
+
+  <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+    <block wx:for="{{category}}" wx:key="index" >
+      <view data-id="{{item.nick}}" class="cate-box">
+        <view class="cate-banner">
+          <image src="{{courselist[0].image}}"></image>
+        </view>
+        <view class="cate-title">
+          <text>{{courselist[0].category}}</text>
+        </view>
+        <view class="product">
+          <block wx:for="{{courselist}}" wx:for-item="val">
+            <navigator url="../list/list">
+              <view class='list'>
+                <image src='{{val.image}}' style='height:120rpx;width:150rpx;' />
+                <view class='template-list'>
+                  <view class='list-title'>{{val.name}} </view>
+                  <view class='list-desc'>{{val.description}}</view>
+                </view>
+              </view>
+            </navigator>
+          </block>
+        </view>
+      </view>
+    </block>
+
+  </scroll-view>
+
+=======
+<view class="main">
+    <view class="categroy-left">
+        <view wx:for="{{category}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}"
+            bindtap="switchTab"
+            class="cate-list {{curIndex === index?'on':''}}">{{item.name}}</view>
+    </view>
+
+    <scroll-view class="categroy-right" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+        <block wx:for="{{detail}}" wx:for-index wx:key="idx">
+            <view id="{{item.id}}" class="cate-box">
+                <view class="cate-banner">
+                    <image src="{{item.banner}}"></image>
+                </view>
+                <view class="cate-title">
+                    <text>{{item.cate}}</text>
+                </view>
+                <view class="product">
+                    <view class="product-list" wx:for="{{item.detail}}" wx:key="index" wx:for-item="val">
+                        <navigator url="../list/list">
+                            <image src="{{val.thumb}}"></image>
+                            <view class="classname"><text>{{val.name}}</text></view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+
+>>>>>>> parent of 68602df... 修复分类滚动bug
+</view>

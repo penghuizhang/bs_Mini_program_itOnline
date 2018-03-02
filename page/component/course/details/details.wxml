@@ -1,0 +1,90 @@
+<import src="../course-template/course-template.wxml"/>
+
+
+
+  <!-- 头部描述 -->
+  <view class='details-header'>
+    <image class='details-img' src='/image/b4.jpg' />
+    <view class='details-BreadcrumbNavigation'>
+      课程\后端开发\初识机器学习--理论篇
+    </view>
+    <view class='details-titles'>
+      <text class='title-text'>初识机器学习--理论篇</text>
+    </view>
+  </view>
+  <view class='header'>
+    <!-- 课程简单介绍 -->
+    <view class='details-desc'>
+      <text>简介：主要带领同学入门weex框架的使用，能够利用这套框架做出一个接近原生应用的案例。</text>
+
+    </view>
+
+    <view class='details-data'>
+      <text decode="{{true}}">
+      难度:中级&nbsp;|&nbsp; 时长:1h35分 &nbsp;|&nbsp; 人数:123&nbsp;|&nbsp;评分:9.0 &nbsp;</text>
+    </view>
+
+    <!-- 课程章节信息 -->
+     <!-- <view class='course-details'>
+      <text class='course-infor'>课程章节信息</text>
+      <view class='course-list'>
+        <view class='lists'>
+          <text class='course-charpet'>第1章 weex介绍</text>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+            </view>
+          </navigator>
+        </view>
+        <view class='lists'>
+          <text class='course-charpet'>第1章 weex介绍</text>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+            </view>
+          </navigator>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+            </view>
+          </navigator>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+
+            </view>
+          </navigator>
+        </view>
+
+        <view class='lists'>
+          <text class='course-charpet'>第1章 weex介绍</text>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name '>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+
+
+            </view>
+          </navigator>
+        </view>
+
+      </view>
+    </view>   -->
+    <!-- 应用模板 -->
+     <template is="course-list-template" />
+  
+  <!-- 讲师相关 -->
+  <view class='course-teacher'>
+      <text style='margin-left:30rpx;'>讲师</text>
+      <view class='teacher'>
+        <image src='/image/b3.jpg' class='image-teacher'></image>
+        <view class='teacher-name'>
+          <text decode="{{true}}" style='font-size:25rpx;'>ASDSDt\n</text>
+          <text>前端开发工程师</text>
+        </view>
+      </view>
+      <view class='teacher-tell'>
+        <text>老师告诉你能学到什么?</text>
+        <text>1.如何进行页面无缝滚动，2如何实现视觉差异效果，3如何进行页面无缝滚动如何实现视觉差异效果</text>
+      </view>
+    </view>
+</view>

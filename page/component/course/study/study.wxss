@@ -1,0 +1,7 @@
+/* page/component/course/study/study.wxss */
+@import '../../../common/common.wxss';
+@import '../course-template/course-template.wxss';
+
+.video-desc{
+  width: 100%;
+}

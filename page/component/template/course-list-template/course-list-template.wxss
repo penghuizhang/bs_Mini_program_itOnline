@@ -1,0 +1,51 @@
+.newest-templet{
+  height: 100%;
+  width: 100%;
+	float: left;
+}
+.templet-left{
+	float:left;
+	padding-top: 20rpx;
+}
+.templet-left image{
+    width: 200rpx;
+    height:200rpx;
+    padding: 20rpx 10rpx 20rpx 30rpx;
+
+}
+
+.templet-right{
+	float: right;
+	width: 490rpx;
+    height: 200rpx;
+    padding-top: 40rpx;
+    /* background-color: yellow; */
+}
+
+.course-name{
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.course-desc{
+    font-size: 25rpx;
+    
+}
+.row-degress-student{
+    height: 10rpx;
+    
+
+}
+.course-degress{
+    float:left;
+    font-size:25rpx;
+    text-align:center;
+margin-top: 20rpx;
+}
+.course-students{
+    font-size: 25rpx;
+    float: right;
+    text-align:center;
+    margin-top: 20rpx;
+}
+

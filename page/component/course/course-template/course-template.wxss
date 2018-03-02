@@ -1,0 +1,57 @@
+@import '../../../common/common.wxss';
+@font-face {
+  font-family: 'iconfont';  /* project id 572620 */
+  src: url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.eot');
+  src: url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bofang:before { content: "\e624"; }
+
+
+/* 课程相关css */
+.course-details{
+  margin-top: 40rpx;
+  background-color: #E6E6E6;
+  margin-bottom: 60rpx;
+}
+.course-infor{
+  font-size: 40rpx;
+  color: black;
+  margin-left: 20rpx;
+}
+.course-list{
+  margin-left: 30rpx;
+}
+.lists{
+  margin-top: 40rpx;
+  /* margin-bottom: 40rpx; */
+}
+
+.course-charpet{
+  margin-top: 40rpx;
+   /* margin-bottom: 40rpx; */
+}
+.charpet-course-name{
+  /* height: 30rpx; */
+  width: 70%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10rpx;
+  
+  border: 1rpx solid ;
+  font-size: 40rpx;
+  border-radius: 5rem;
+   padding-bottom: 10rpx; 
+   padding-top: 10rpx; 
+}

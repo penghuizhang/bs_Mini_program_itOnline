@@ -1,0 +1,5 @@
+<import src="../course-template/course-template.wxml"/>
+<view class='main'> 
+<video class='video-desc' src="http://qukufile2.qianqian.com/data2/video/572082633/cfe0da50703c0d43d22228c3e2bf7990/572082633.mp4"></video>
+<template is="course-list-template" />
+</view>

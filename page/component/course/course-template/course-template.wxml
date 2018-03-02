@@ -1,0 +1,46 @@
+<template  name="course-list-template">
+ <view class='course-details'>
+      <text class='course-infor'>课程章节信息</text>
+      <view class='course-list'>
+        <view class='lists'>
+          <text class='course-charpet'>第1章 weex介绍</text>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+            </view>
+          </navigator>
+        </view>
+        <view class='lists'>
+          <text class='course-charpet'>第1章 weex介绍</text>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+            </view>
+          </navigator>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+            </view>
+          </navigator>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name'>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+
+            </view>
+          </navigator>
+        </view>
+
+        <view class='lists'>
+          <text class='course-charpet'>第1章 weex介绍</text>
+          <navigator url='../study/study' class='naviagtors'>
+            <view class='charpet-course-name '>
+              <text class='iconfont icon-bofang'>1-1 weeX 介绍</text>
+
+
+            </view>
+          </navigator>
+        </view>
+
+      </view>
+    </view> 
+</template>

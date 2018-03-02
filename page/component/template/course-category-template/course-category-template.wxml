@@ -1,0 +1,10 @@
+<template name="course-category-template">
+  <view class="product-list">
+    <navigator url="../details/details">
+      <image src="/image/bootstrap.jpg"></image>
+      <view class="classname">
+        <text>{{course.name}}</text>
+      </view>
+    </navigator>
+  </view>
+</template>

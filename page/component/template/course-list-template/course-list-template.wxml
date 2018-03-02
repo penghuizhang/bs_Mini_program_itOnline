@@ -1,0 +1,32 @@
+<template name="course-list-template">
+ <view class='newest-templet'>
+   
+    <!-- 课程头像  左侧-->
+    <view class='templet-left'>
+      <image src='/image/html5+css3+js.jpg'></image>
+    </view>
+
+    <!-- 课程  右侧  -->
+    <view class='templet-right'>
+      <!-- 课程标题 -->
+      <view class='course-name'>
+        <text>H5+JS+CSS3 实现圣诞情缘</text>
+      </view>
+      <!-- 课程描述 -->
+      <view class='course-desc'>
+        <text>简介：圣诞节将近，帅哥美女相约，送一份特别的礼物，让TA过一个不一样的节日。</text>
+      </view>
+      <!--  将课程级别和学习人数放到一行 -->
+      <view class='row-degress-student'>
+        <!-- 课程级别 -->
+        <view class='course-degress'>
+          <text>高级</text>
+        </view>
+        <!-- 课程学习人数  -->
+        <view class='course-students'>
+          <text>99205人</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
