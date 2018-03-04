@@ -5,24 +5,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-    courselists:[],
-  },
+    goods: {
+      id: 1,
+      image: '/image/b4.jpg',
+      title: '新鲜梨花带雨',
+      price: 0.01,
+      stock: '有货',
+      detail: '这里是梨花带雨详情。',
+      parameter: '125g/个',
+      service: '不支持退货'
+    },
+    num: 1,
+    totalNum: 0,
+    hasCarts: false,
+    curIndex: 0,
+    show: false,
+    scaleCart: false,
+    video:[],
+   
 
+
+
+  },
+  bindTap(e) {
+    const index = parseInt(e.currentTarget.dataset.index);
+    this.setData({
+      curIndex: index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var self = this;
-      console.log(options.id);
-      var id= options.id;
-      wx.request({
-        url: app.globalData.ServerUrl + 'study/'+id +'/lists',
-        success(res){
-          self.setData({
-            courselists:res.data.data
-          })
-        }
-      })
+    var id = options.id;
+    console.log("play/play页面传过来的id为"+id);
+    wx.request({
+      url: app.globalData.ServerUrl+'play/'+id,
+      success(res){
+        self.setData({
+          video:res.data.data
+        })
+      }
+    })
   },
 
   /**

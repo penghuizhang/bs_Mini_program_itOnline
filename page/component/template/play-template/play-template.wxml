@@ -1,0 +1,3 @@
+<view>
+  <video src="{{val.video_url}}"   controls ></video>
+</view>

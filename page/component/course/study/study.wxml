@@ -1,5 +1,21 @@
-<import src="../course-template/course-template.wxml"/>
-<view class='main'> 
-<video class='video-desc' src="http://qukufile2.qianqian.com/data2/video/572082633/cfe0da50703c0d43d22228c3e2bf7990/572082633.mp4"></video>
-<template is="course-list-template" />
+<import src="../course-template/course-template.wxml" />
+
+<view class='main'>
+  <video class='video-desc' src='{{courselists[0].coursesVideo[0].video_url}}'></video>
+  <block wx:for="{{courselists}}" wx:for-item="item">
+    <view class='course-details'>
+      <text class='course-infor'>{{item.name}}</text>
+      <view class='course-list'>
+        <view class='lists'>
+          <block wx:for="{{item.coursesVideo}}" wx:key="index"  wx:for-item="val">
+            <navigator url='../play/play?id={{val.id}}' class='naviagtors'>
+              <view class='charpet-course-name'>
+                <text class='iconfont icon-bofang'>{{val.name}}</text>
+              </view>
+            </navigator>
+            </block>
+        </view>
+      </view>
+    </view>
+  </block>
 </view>

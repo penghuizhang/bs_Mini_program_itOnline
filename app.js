@@ -11,9 +11,10 @@ App({
   globalData: {
     hasLogin: false,
     //开发者服务器地址
-    // ServerUrl: 'http://i933uod.hk1.mofasuidao.cn/library/',
-    ServerUrl: 'http://kylin.viphk.ngrok.org/',
-    ImageServerUrl: 'http://kylin5221.free.ngrok.cc',
+    ServerUrl: 'http://springboot.ngrok.xiaomiqiu.cn/',
+    // ServerUrl: 'http://kylin.viphk.ngrok.org/',
+    // ImageServerUrl: 'http://kylin5221.free.ngrok.cc',
+    ImageServerUrl: "http://kylin.ngrok.xiaomiqiu.cn",
     //公众号信息
 
     wxData: {
