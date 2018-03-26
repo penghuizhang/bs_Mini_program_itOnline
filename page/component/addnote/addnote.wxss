@@ -1,0 +1,12 @@
+/* page/component/course/note/note.wxss */
+@import '../../common/common.wxss';
+.form{
+  height: 600rpx;
+  width: 100%;
+  border: black 1rpx solid;
+}
+.submit{
+  text-align: center;
+  font-size: 20rpx;
+  width: 200rpx;
+}

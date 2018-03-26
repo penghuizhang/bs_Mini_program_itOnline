@@ -7,8 +7,8 @@
       <text class='course-infor'>{{item.name}}</text>
       <view class='course-list'>
         <view class='lists'>
-          <block wx:for="{{item.coursesVideo}}" wx:key="index"  wx:for-item="val">
-            <navigator url='../play/play?id={{val.id}}' class='naviagtors'>
+          <block wx:for="{{item.coursesVideo}}" wx:key="index"  wx:for-item="val" >
+            <navigator url='../play/play?id={{val.id}}&&lesson_id={{val.lesson_id}}' class='naviagtors' >
               <view class='charpet-course-name'>
                 <text class='iconfont icon-bofang'>{{val.name}}</text>
               </view>

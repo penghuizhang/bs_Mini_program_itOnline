@@ -3,15 +3,18 @@
 <view class="main">
   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="100%" />
-      </swiper-item>
+      <navigator url="course/study/study?id={{item.id}}">
+        <swiper-item>
+          <image src="{{item.image}}" class="slide-image" width="100%" />
+        </swiper-item>
+      </navigator>
     </block>
   </swiper>
   <view class="selected">
     <view class="select-title">
       <text>精选主题</text>
     </view>
+
     <view class="select-top">
       <view class="select-top-small">
         <navigator url="list/list">
@@ -30,44 +33,33 @@
       </navigator>
     </view>
   </view>
-  <view class="newest">
+  <!-- <view class="newest">
     <view class="newest-title">
       <text>最近新课</text>
     </view>
-    <view class="newest-box">
-      <view class="newest-list">
-        <navigator url="details/details">
-          <image src="/image/s5.png"></image>
-          <view class="newest-text">
-            <text>芹菜 半斤</text>
-          </view>
-          <view class="newest-text">
-            <text>￥ 0.02</text>
-          </view>
-        </navigator>
+    <scroll-view class='scroll' scroll-x="{{true}}">
+      <view class="newest-box">
+        <view class="newest-list">
+          <navigator url="details/details">
+            <image src="/image/s5.png"></image>
+            <view class="newest-text">
+              <text>芹菜 半斤</text>
+            </view>
+            <view class="newest-text">
+              <text>￥ 0.02</text>
+            </view>
+          </navigator>
+        </view>
       </view>
-      <view class="newest-list">
-        <navigator url="details/details">
-          <image src="/image/s6.png"></image>
-          <view class="newest-text">
-            <text>素米 375g</text>
-          </view>
-          <view class="newest-text">
-            <text>￥ 0.03</text>
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view>
+    </scroll-view>
+  </view> -->
 
 
 
   <view class='newest-title'>
     <text>精选推荐</text>
   </view>
-  <template is="course-list-template" />
-  <template is="course-list-template" />
-  <template is="course-list-template" />
-  <template is="course-list-template" />
-  <template is="course-list-template" />
+  <block wx:for="{{timeList}}" wx:for-item="item">
+    <template is="course-list-template" data="{{...item}}"/>
+  </block>
 </view>

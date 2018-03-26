@@ -4,15 +4,43 @@
     <video src='{{video.video_url}}' class='video'></video>
   </view>
 
-<view class="goods-tab-box">
-        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
-        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
-        <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
-        <view class="goods-content">
-            <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
-            <view wx:if="{{curIndex === 1}}">{{goods.parameter}}</view>
-            <view wx:if="{{curIndex === 2}}">{{goods.service}}</view>
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">课程详情</view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">评论</view>
+    <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">笔记</view>
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
+      <view wx:if="{{curIndex === 1}}">
+        <!-- 评论框 -->
+        <!-- <view class='comment-message'>
+          <block wx:for="{{}}" wx:key="index"  wx:for-item="val">
+            <image src='{{avatarUrl}}' class='thumb'></image>
+          <textarea>{{message}}</textarea>
+          </block>
+        </view> -->
+      </view>
+      <view wx:if="{{curIndex === 2}}">
+
+        <view class='newslist'>
+          <block wx:for="{{comment}}" wx:key="index" wx:for-item="val">
+            <view class='list'>
+              <image src='{{val.image_url}}' class='thumb'> </image>
+              <view class='messageview'>
+                <text class='message'>{{val.note_message}}</text>
+              </view>
+            </view>
+          </block>
         </view>
+
+      </view>
+    <view class='lastbottom'>
     </view>
+  </view>
+</view>
 
 </view>
+<view class="comment" bindtap='add_note'>
+  <view class='iconfont icon-add' wx:if="{{curIndex == 1}}"></view>
+  <view class='iconfont icon-add' wx:if="{{curIndex == 2}}"></view>
+</view>
+

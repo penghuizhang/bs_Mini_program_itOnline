@@ -1,8 +1,9 @@
 
 {
   "pages": [
-    "page/component/category/category",
-      "page/component/index",
+    
+      "page/component/category/category",
+      "page/component/addnote/addnote",
       "page/component/cart/cart",
       "page/component/user/user",
       "page/component/address/address",
@@ -11,7 +12,11 @@
       "page/component/list/list",
       "page/component/course/details/details",
       "page/component/course/study/study",
-      "page/component/course/play/play"
+      "page/component/course/play/play",
+      "page/component/course/messagelists/messagelists",
+
+      "page/component/index",
+      "page/component/course/notelists/notelists"
   ],
   "window": {
     "navigationBarTextStyle": "#ffffff",

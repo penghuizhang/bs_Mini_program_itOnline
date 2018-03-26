@@ -1,36 +1,21 @@
-var app = getApp();
+// page/component/course/messagelists/messagelists.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    courselists:[],
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var self = this;
-      console.log(options.id);
-      var id= options.id;
-      // http  @GetMapping
-      wx.request({
-        //将点击的课程的id进行传递到下一个播放页面，或者跳转更新这个页面，播放其他课程章节
-        url: app.globalData.ServerUrl + 'study/'+id +'/lists',
-        success(res){
-          self.setData({
-            courselists:res.data.data
-          })
-        }
-      })
+    var lesson_id = options.lesson_id;
+    console.log("messagelists页面打印lesson_id========="+lesson_id);
+  },
 
-      //点击了这个页面，进行记录信息
-  },
-  recordEvent: function(e){
-    console.log(e);
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -146,5 +146,65 @@
     border-bottom: 5rpx solid #bcaa8a;
 }
 .goods-content{
-    padding: 40rpx;
+    
+}
+
+
+
+
+.newslist{
+  position: absolute;
+  top: 540rpx;
+}
+
+.list{
+  float: left;
+  margin-top: 30rpx;
+  height: 90rpx; 
+  width: 100%;
+  padding-left: 20rpx;
+}
+
+.thumb{
+  position: relative;
+  float: left;
+  left: 1rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  border: 1rpx solid red;
+}
+
+.messageview{
+  position: relative;
+  float: left;
+  padding-left: 30rpx;
+}
+
+.message{
+  top: 20rpx;
+  font-size: 30rpx;
+  font-family: "微软雅黑";
+  text-align: center;
+}
+
+
+
+.icon-add:before { content: "\e65c"; }
+
+
+.lastbottom{
+  width: 100%;
+  position: absolute;
+  bottom: 5rpx;
+  font-size: 30rpx;
+  text-align: center;
+
+}
+
+.comment{
+  position: absolute;
+  bottom: 60rpx;
+  right: 60rpx;
+  font-size: 100rpx;
 }

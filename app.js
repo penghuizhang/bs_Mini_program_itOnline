@@ -10,7 +10,7 @@ App({
   },
   globalData: {
     hasLogin: false,
-    //开发者服务器地址
+    //开发者服务器地址 
     ServerUrl: 'http://springboot.ngrok.xiaomiqiu.cn/',
     // ServerUrl: 'http://kylin.viphk.ngrok.org/',
     // ImageServerUrl: 'http://kylin5221.free.ngrok.cc',

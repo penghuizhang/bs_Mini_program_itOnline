@@ -1,24 +1,5 @@
 @import '../../../common/common.wxss';
-@font-face {
-  font-family: 'iconfont';  /* project id 572620 */
-  src: url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.eot');
-  src: url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_572620_z4lcug3tlxy4aemi.svg#iconfont') format('svg');
-}
-
-.iconfont {
-  font-family:"iconfont" !important;
-  font-size:16px;
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .icon-bofang:before { content: "\e624"; }
-
-
 /* 课程相关css */
 .course-details{
   margin-top: 40rpx;

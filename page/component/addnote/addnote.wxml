@@ -1,0 +1,8 @@
+<!--page/component/course/note/note.wxml-->
+<view class='main'>
+<form bindsubmit='click'>
+    <textarea class='form' auto-focus  placeholder='我的笔记' name="message"></textarea>
+    <view style='padding-top:30rpx;'> </view>
+    <button  class="submit"   form-type="submit" >提交</button>
+  </form>
+</view>
