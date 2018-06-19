@@ -11,9 +11,15 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
+<<<<<<< HEAD
 	"libVersion": "1.9.98",
 	"appid": "wxa24993353a279b9c",
 	"projectname": "wxa24993353a279b9c",
+=======
+	"libVersion": "1.9.1",
+	"appid": "wx*********",
+	"projectname": "itOnline",
+>>>>>>> 458cfbcc8d4b1e3fbd1e7833f49b434c149b87bb
 	"isGameTourist": false,
 	"condition": {
 		"search": {
