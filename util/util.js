@@ -15,7 +15,23 @@ function formatTime(time) {
     return n[1] ? n : '0' + n
   }).join(':')
 }
-
+//返回格式 xx年xx月xx日
+function getNowFormatDate() {
+  var date = new Date();
+  var seperator1 = "年";
+  var seperator2 = "月";
+  var month = date.getMonth() + 1;
+  var strDate = date.getDate();
+  if (month >= 1 && month <= 9) {
+    month = "0" + month;
+  }
+  if (strDate >= 0 && strDate <= 9) {
+    strDate = "0" + strDate;
+  }
+  var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+  return currentdate;
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  currentTime: getNowFormatDate
 }

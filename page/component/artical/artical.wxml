@@ -1,0 +1,18 @@
+<!--page/component/artical/artical.wxml-->
+<view class='container'>
+  <view class='artical-list'>
+    <block wx:for="{{articalList}}" wx:for-item="item">
+      <view class="artical">
+        <navigator url='artical-detail/artail-detail?id={{item.id}}'>
+          <view class='article-title'>{{item.title}}</view>
+          <view>
+            <text class='text-left'>{{item.readnum}}人浏览</text>
+            <text class='text-center'>{{item.sharenum}}人推荐</text>
+            <text class='text-right'>{{item.pinglunnum}}人评论</text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </view>
+  <view class='show' wx:if="{{isShow}}">到底啦。。。</view>
+</view>

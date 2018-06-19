@@ -1,0 +1,4 @@
+<!--pages/python/python.wxml-->
+<import src="/page/common/exam-list.wxml" />
+<loading hidden="{{!isLoading}}">加载中...</loading>
+<template wx:if="{{!isLoading}}" is="question-list" data="{{answers,layerlayer,swiper}}" />

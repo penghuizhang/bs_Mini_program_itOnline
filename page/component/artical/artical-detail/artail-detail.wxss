@@ -1,0 +1,20 @@
+/* page/component/artical/artical-detail/artail-detail.wxss */
+@import '../../../common/common.wxss';
+
+.container{
+  height: 100%;
+  width: 100%;
+}
+.title{
+  font-size: 40rpx;
+  font-family: "微软雅黑"
+}
+.author{
+  padding-left: 20rpx;
+}
+.readnum{
+  padding-left: 30rpx;
+}
+.sharenum{
+  padding-left: 30rpx;
+}

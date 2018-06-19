@@ -1,5 +1,6 @@
 // page/component/new-pages/user/user.js
 var app = getApp();
+var current_time = require("../../../util/util.js");
 Page({
   data: {
     thumb: '',
@@ -11,8 +12,17 @@ Page({
     userId: {},
     weChatUserInfo: {},
     userProfile: {},
+    brand: '',
+    model: '',
+    flag: true,
+    hiddenModal: true,
+    email:"",
+    isLogin:false,
+    courseList:[]
   },
+
   onLoad() {
+    wx.startPullDownRefresh();
     var weChatUserInfo = {};
     var self = this;
     var userProfile = {};
@@ -44,9 +54,6 @@ Page({
               wx.setStorageSync('userId', openId);
               // 判断openId是否获取成功
               if (openIdRes.data.openid != null & openIdRes.data.openid != undefined) {
-
-    
-
                 // 有一点需要注意 询问用户 是否授权 那提示 是这API发出的
                 wx.getUserInfo({
                   success: function (res) {
@@ -56,33 +63,57 @@ Page({
                     var nickName = userInfo.nickName
                     var avatarUrl = userInfo.avatarUrl
                     var gender = userInfo.gender //性别 0：未知、1：男、2：女
+                    var nickname = wx.getStorageInfoSync("nickname");
+                    if (nickname == null || nickname == undefined || nickname == '') {
+                      self.setData({
+                        isLogin: false
+                      })
+                    } else {
+                      var xx = self;
+                      wx.request({
+                        url: app.globalData.ServerUrl + 'user/course/lists',
+                        data: {
+                          openId: wx.getStorageSync('userId'),
+                        },
+                        success(res) {
+                          xx.setData({
+                            isLogin: true,
+                            courseList:res.data
+                          })
+                          console.log("输出学生的学习课程");
+                        } 
+                      })
+                    };
                     var userProfile = {
                       nickName: nickName,
-                      image_url: avatarUrl,
+                      imageUrl: avatarUrl,
                       gender: gender,
-                      userAccount: openId,
+                      useraccount: wx.getStorageSync('userId'),
+                      city: userInfo.city,
+                      province: userInfo.province,
+                      country : userInfo.country
                     };
+                    var studentProfile = userProfile;
                     self.setData({
-                      userProfile: userProfile,
+                      studentProfile: studentProfile,
                       thumb: res.userInfo.avatarUrl,
-                      nickname: res.userInfo.nickName
+                      nickname: res.userInfo.nickName,
+                      flag:false
                     });
+                    nickName = wx.setStorageSync('nickname', nickName);
                     avatarUrl = wx.setStorageSync('avatarUrl', avatarUrl);
                     wx.request({
                       url: app.globalData.ServerUrl + 'user/add',
-                      data: userProfile,
+                      data: studentProfile,
                       method: 'POST',
                       header: {
                         'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
                       },
                       success(res) {
                         console.log("用户openId保存成功");
-
                       },
-
                     });
                   },
-                  
                   fail: function (failData) {
                     console.info("用户拒绝授权");
                   }
@@ -90,39 +121,31 @@ Page({
               } else {
                 console.info("获取用户openId失败");
               }
-
             },
             fail: function (error) {
               console.info("获取用户openId失败");
               console.info(error);
             }
+          });
+          wx.request({
+            url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential',
+            data:{
+              appid: app.globalData.wxData.appId,
+              secret: app.globalData.wxData.appSecret
+            },
+            method:'GET',
+            header: { 'content-type': 'application/json' },
+            success: function(res){
+                var obj = {};
+                obj.access_token = res.data.access_token;
+                obj.expires_in = Date.now()+res.data.expires_in*1000-600000;
+                wx.setStorageSync('accessToken', obj);
+            }
           })
         }
-
       }
-    }),
-
-
-
-
-      /**
-       * 发起请求获取订单列表信息
-       */
-      wx.request({
-        url: 'http://www.gdfengshuo.com/api/wx/orders.txt',
-        success(res) {
-          self.setData({
-            orders: res.data.orders
-          })
-        }
-      });
-
-    
+    })
   },
-
-
-
-
   onShow() {
     var self = this;
     /**
@@ -138,29 +161,133 @@ Page({
       }
     })
   },
-  /**
-   * 发起支付请求
-   */
-  payOrders() {
-    wx.requestPayment({
-      timeStamp: 'String1',
-      nonceStr: 'String2',
-      package: 'String3',
-      signType: 'MD5',
-      paySign: 'String4',
+  submit: function (e) {
+    /**
+     * 获取到当前的form_id 写到数据库中
+     */
+   var  formId = e.detail.formId;
+    wx.request({
+      url: app.globalData.ServerUrl + 'common/formId',
+      data: {
+        formId: formId
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      method: 'POST',
       success: function (res) {
-        console.log(res)
+        console.log(formId);
+        console.log(res);
       },
       fail: function (res) {
-        wx.showModal({
-          title: '支付提示',
-          content: '<text>',
-          showCancel: false
-        })
+        console.log(formId)
+        console.log(err);
+      }
+    });
+
+
+    var tourse= wx.getStorageSync('userId');
+    var token = wx.getStorageSync('accessToken').access_token;
+    console.log("..................")
+    wx.getSystemInfo({
+      success: function(res) {
+        wx.setStorageSync('model', res.model)
+      },
+     
+    })
+    //向用户发送登录成功的数据，在此前，系统未获得该用户任何数据
+    var date = new Date();
+    var times = date.getFullYear() + "年" + date.getMonth()+1 + "月" + date.getDate();
+   
+    var datas = {
+      touser: tourse,
+      template_id: '7Pj4SMb8cAy0YdrLZh4RBDElIHEjbbT7yWUVlXejYBw',
+      form_id: e.detail.formId,
+      data: {
+        'keyword1': {
+          'value': wx.getStorageSync('nickname'),
+          // 'color':,
+        },
+        'keyword2': {
+          'value': times,
+          // 'color': '',
+        },
+        'keyword3': {
+          'value': wx.getStorageSync('model'),
+          // 'color': '',
+        },
+        'keyword4': {
+          'value': '如果不是本人登录系统，请检查安全',
+          // 'color': '',
+        },
+        emphasis_keyword: 'keyword1.DATA'  
+      }
+    }
+    wx.request({
+      url: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + token,
+      data:datas,
+      method:'POST',
+      success:function(res){
+        console.log("push msg");
+        console.log(res);
+      },
+      fail:function(res){
+        console.log("push err")
+        console.log(err);
       }
     })
   },
+  /**
+   * 添加用户的邮箱，发邮件
+   */
+  
+    listenerButton: function () {
+      this.setData({
+        hiddenModal: !this.data.hiddenModal
+      })
+    },
 
+    confirm: function (e) {
+      this.setData({
+        hiddenModal: !this.data.hiddenModal
+      })
+      wx.request({
+        url: app.globalData.ServerUrl + 'user/email/add',
+        data: {
+          email: this.data.email,
+          openId: this.data.openId
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        method: 'POST',
+        success: function (res) {
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000
+          })
+        },
+        fail: function (res) {
+          wx.showToast({
+            title: '失败',
+            icon: 'fail',
+            duration: 2000
+          })
+        }
+      });
+     
+    },
 
-
+    cancel: function () {
+      this.setData({
+        email:""
+      })
+    },
+    onBindInput:function(e){
+      var email = e.detail.value;
+      this.setData({
+        email:email
+      })
+    }
 })

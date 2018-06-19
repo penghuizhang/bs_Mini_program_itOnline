@@ -1,0 +1,39 @@
+/* page/component/artical/artical.wxss */
+@import '../../common/common.wxss';
+
+.container{
+  height: 100%;
+  width: 100%;
+}
+.artical-list{
+  height: 100%;
+  width: 100%;
+}
+.artical{
+  height: 150rpx;
+  width: 100%;
+  background-color: #d7d7d7; 
+  margin-bottom: 40rpx;
+  margin-top: 30rpx;
+}
+.xx{
+  border-bottom: 2rpx;
+}
+.article-title{
+  font-size: 35rpx;
+  text-indent: 1rem;
+  text-justify: inter-cluster;
+  font-weight: bold;
+}
+.text-left{
+  padding-left: 30rpx;
+}
+.text-center{
+  padding-left: 30rpx;
+}
+.text-right{
+  padding-left: 30rpx;
+}
+.show{
+  text-align: center
+}

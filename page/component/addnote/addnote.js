@@ -25,6 +25,7 @@ Page({
       this.setData({
         lesson_id :lesson_id
       })
+     
   },
 
 
@@ -90,7 +91,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+   
   },
 
   /**

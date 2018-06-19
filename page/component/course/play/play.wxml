@@ -9,20 +9,16 @@
     <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">评论</view>
     <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">笔记</view>
     <view class="goods-content">
-      <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
-      <view wx:if="{{curIndex === 1}}">
-        <!-- 评论框 -->
-        <!-- <view class='comment-message'>
-          <block wx:for="{{}}" wx:key="index"  wx:for-item="val">
-            <image src='{{avatarUrl}}' class='thumb'></image>
-          <textarea>{{message}}</textarea>
-          </block>
-        </view> -->
+      <view wx:if="{{curIndex === 0}}">
+        {{details}}
+        
+        <navigator url='../../exams/exam-lesson/exam-lesson?lesson_id={{lesson_id}}'>
+          <image src='/image/exam.png' style='float:right;padding-top:400rpx;height:100rpx;width:100rpx;padding-right:100rpx;'></image>
+        </navigator>
       </view>
-      <view wx:if="{{curIndex === 2}}">
-
-        <view class='newslist'>
-          <block wx:for="{{comment}}" wx:key="index" wx:for-item="val">
+      <view wx:if="{{curIndex === 1}}">
+        <view class='newslist' style='padding-top:60rpx;'>
+          <block wx:for="{{x1}}" wx:key="index" wx:for-item="val">
             <view class='list'>
               <image src='{{val.image_url}}' class='thumb'> </image>
               <view class='messageview'>
@@ -31,6 +27,19 @@
             </view>
           </block>
         </view>
+      </view>
+      <view wx:if="{{curIndex === 2}}">
+
+         <view class='newslist' style='padding-top:60rpx;'>
+          <block wx:for="{{comment}}" wx:key="index" wx:for-item="val">
+            <view class='list'>
+              <image src='{{val.image_url}}' class='thumb'> </image>
+              <view class='messageview'>
+                <text class='message'>{{val.note_message}}</text>
+              </view>
+            </view>
+          </block>
+        </view> 
 
       </view>
     <view class='lastbottom'>

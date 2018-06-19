@@ -1,22 +1,24 @@
 
 {
   "pages": [
-    
+      "page/component/index",
+      "page/component/artical/artical",
       "page/component/category/category",
       "page/component/addnote/addnote",
-      "page/component/cart/cart",
+      "page/component/exam/exam",
       "page/component/user/user",
       "page/component/address/address",
-      "page/component/orders/orders",
       "page/component/details/details",
       "page/component/list/list",
       "page/component/course/details/details",
       "page/component/course/study/study",
       "page/component/course/play/play",
       "page/component/course/messagelists/messagelists",
-
-      "page/component/index",
-      "page/component/course/notelists/notelists"
+      "page/component/exams/exam-lesson/exam-lesson",
+      "page/component/exams/exam-course/exam-course",
+      "page/component/course/notelists/notelists",
+      "page/component/artical/artical-detail/artail-detail",
+      "page/component/show/show"
   ],
   "window": {
     "navigationBarTextStyle": "#ffffff",
@@ -41,10 +43,10 @@
       "selectedIconPath": "image/21.png",
       "text": "分类"
     }, {
-      "pagePath": "page/component/cart/cart",
+      "pagePath": "page/component/artical/artical",
       "iconPath": "image/32.png",
       "selectedIconPath": "image/31.png",
-      "text": "购物车"
+      "text": "手记"
     }, {
       "pagePath": "page/component/user/user",
       "iconPath": "image/42.png",
@@ -52,6 +54,7 @@
       "text": "我的"
     }]
   },
+  
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,

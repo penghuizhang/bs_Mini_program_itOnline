@@ -1,5 +1,5 @@
 <template name="course-list-template">
-  <navigator url='course/study/study?id={{id}}'>
+  <navigator url='/page/component/course/study/study?id={{id}}'>
     <view class='newest-templet'>
 
 

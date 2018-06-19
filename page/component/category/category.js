@@ -7,8 +7,7 @@ Page({
     courselist: [],
     curIndex: 1,
     isScroll: false,
-    toView: 'qianduan',
-    
+    toView: 'qianduan'
   },
  
 
@@ -19,7 +18,7 @@ Page({
       url: app.globalData.ServerUrl + 'course/category',
       success(res) {
         self.setData({
-          category: res.data.data,
+          category: res.data,
         })
       }
     }),
@@ -45,7 +44,7 @@ Page({
 
       }),
         wx.request({
-          url: app.globalData.ServerUrl + '/course/category/' + self.data.curIndex + '/lists',
+          url: app.globalData.ServerUrl + '/course/category/'+self.data.curIndex+ '/lists',
           success: function (res) {
             self.setData({
               courselist: res.data.data

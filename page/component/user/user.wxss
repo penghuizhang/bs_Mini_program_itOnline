@@ -1,4 +1,5 @@
 @import '../../common/common.wxss';
+@import '../template/course-list-template/course-list-template.wxss';
 
 .header{
     position: relative;
@@ -117,4 +118,11 @@
     border-radius: 6rpx;
     background: #b42f2d;
     color: #fff;
+}
+.select-title,.newest-title{
+    width: 100%;
+    padding:30rpx 0;
+    height: 40rpx;
+    color: #AB956D;
+    text-align: center;
 }

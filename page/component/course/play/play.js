@@ -5,16 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: {
-      id: 1,      
-      image: '/image/b4.jpg',
-      title: '新鲜梨花带雨',
-      price: 0.01,
-      stock: '有货',
-      detail: '这里是梨花带雨详情。',
-      parameter: '125g/个',
-      service: '不支持退货'
-    },
     num: 1,
     totalNum: 0,
     hasCarts: false,
@@ -23,12 +13,13 @@ Page({
     scaleCart: false,
     lesson_id:"",
     video:[],
-    common:{},
-
-    comment:{},
-    note:{},
-
+    common:[],
+    details:"",
+    comments:[],
+    note:[],
     avatarUrl:"",
+    x1:[],
+    send_message:"",
   },
   bindTap(e) {
     const index = parseInt(e.currentTarget.dataset.index);
@@ -44,6 +35,7 @@ Page({
   onLoad: function (options) { 
     var self = this;
     var video_id = options.id;
+    
     var lesson_id = options.lesson_id;
     console.log("lesson_id为"+lesson_id);
     console.log("play/play页面传过来的id为" + video_id);
@@ -61,28 +53,63 @@ Page({
         }
       })
     }else{
+      console.log("章节id = ===="+lesson_id);
+    
+      var course_id = lesson_id;
+      // wx.request({
+      //   // url: app.globalData.ServerUrl + "lesson/update/" + course_id,
+      //   success(res){
+      //     self.setData({
+      //       send_message:res.data.data
+      //     })
+      //   }
+      // });
+      // if(!self.data.send_message){
+      //     console.log("为空，说明没有更新")
+      // }else{
+      //   wx.showModal({
+      //     title: '更新通知',
+      //     content: '您关注的课程有更新哦！',
+      //     success: function (res) {
+      //       //说明用户已知晓，则不显示
+      //       // wx.request({
+      //       //   url: app.glbalData.ServerUrl+'',
+      //       // })
+      //     }
+      //   })
+      // }
       //已经进行登录过，此时可以获取到用户openid，可以进行播放上个页面传过来的视频
-      wx.request({
-        url: app.globalData.ServerUrl + 'play/video_id/'+video_id+'/lesson_id/'+lesson_id,
-        success(res) {
-          self.setData({
-            video: res.data.data,
-            lesson_id:res.data.data.lesson_id,
-          })
-        }
-      })
+      // wx.request({
+      //   url: app.globalData.ServerUrl + 'play/video_id/'+video_id+'/lesson_id/'+lesson_id,
+      //   success(res) {
+      //     self.setData({
+      //       video: res.data.data,
+      //       lesson_id:res.data.data.lesson_id,
+      //     })
+      //   }
+      // })
     }  
 
 
     wx.request({
       url: app.globalData.ServerUrl +"note/lists/"+lesson_id,
       success(res){
+        console.log(res.data);
         self.setData({
-          comment:res.data
+          x1:res.data
+        })
+      }
+    }),
+    wx.request({
+      url: app.globalData.ServerUrl +'study/'+lesson_id+'/course/details',
+      success(res){
+        self.setData({
+          details:res.data.data
         })
       }
     })
 
+    
   },
 
   // 通过笔记-->添加按钮进行跳转提交自己的笔记
@@ -104,7 +131,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
@@ -133,9 +160,9 @@ Page({
    */
   onReachBottom: function () {
         console.log("到底了啦")
-        wx.navigateTo({
-          url: '../messagelists/messagelists?lesson_id='+this.data.lesson_id,
-        })
+        // wx.navigateTo({
+        //   url: '../messagelists/messagelists?lesson_id='+this.data.lesson_id,
+        // })
   },
 
   /**

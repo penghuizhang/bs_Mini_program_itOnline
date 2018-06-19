@@ -1,33 +1,47 @@
+<import src="../template/course-list-template/course-list-template.wxml" />
+
 <view class="main">
-    <view class="header">
-        <image src="{{thumb}}" class="thumb"></image>
+  <view class="header">
+    <form bindsubmit="submit" report-submit='true'>
+      <view wx:if="{{flag}}">
+        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+      </view>
+      <view wx:else>
+        <image src="{{thumb}}" class="thumb" bindtap='addEmail'></image>
         <text class="nickname">{{nickname}}</text>
-        <text class="about">关于我们</text>
+        <!-- <text class="about">关于我们</text> -->
+        <button form-type="submit" class="about" bindtap='listenerButton'>关于我</button>
+      </view>
+      <modal hidden="{{hiddenModal}}" title="请输入邮箱" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
+        <input type='text' name="email" value='{{email}}' placeholder="请输入内容" auto-focus bindinput="onBindInput" />
+      </modal>
+    </form>
+  </view>
+ 
+  <view class="address-box">
+    <view class="address-manage">
+      <navigator url="/page/component/address/address">地址管理</navigator>
     </view>
-    <view class="address-box">
-        <view class="address-manage">
-            <navigator url="/page/component/address/address">地址管理</navigator>
-        </view>
-        <view wx:if="{{hasAddress}}" class="address-list">
-            <view>{{address.name}}</view>
-            <view>{{address.phone}}</view>
-            <view>{{address.detail}}</view>
-        </view>
+    <view wx:if="{{hasAddress}}" class="address-list">
+      <view>{{address.name}}</view>
+      <view>{{address.phone}}</view>
+      <view>{{address.detail}}</view>
     </view>
-    <view class="orders-box">
-        <view class="orders">我的订单</view>
-        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
-            <view class="orders-number">订单编号：{{item.number}}</view>
-            <view class="orders-detail">
-                <image src="{{item.thumb}}"></image>
-                <view class="">{{item.name}}</view>
-                <view class="">{{item.count}}</view>
-                <text class="orders-status">{{item.status}}</text>
-            </view>
-            <view class="orders-footer">
-                <text>实付：￥{{item.money}}</text>
-                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
-            </view>
-        </view>
+  </view>
+  <view wx:if="{{isLogin}}">
+    <view class='newest-title'>
+      <text>学习的课程</text>
     </view>
+    <block wx:for="{{courseList}}" wx:for-item="item">
+      <template is="course-list-template" data="{{...item}}" />
+    </block>
+  </view>
+  
+  <view wx:else>
+    <view class='newest-title'>
+      <text>您未登录</text>
+    </view>
+  </view>
+
+  
 </view>

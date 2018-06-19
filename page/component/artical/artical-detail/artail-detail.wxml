@@ -1,0 +1,10 @@
+<!--page/component/artical/artical-detail/artail-detail.wxml-->
+<view class='container'>
+  <view class='title'>{{artical.title}}</view>
+  <text class='author'>{{artical.author}}</text>
+  <text class='readnum'>{{artical.readnum}}人阅读</text>
+  
+  <text class='sharenum'>{{artical.sharenum}}人分享</text>
+  <view class='content'>{{artical.content}}</view>
+  <text class='time'>{{artical.addtime}}</text>
+</view>
